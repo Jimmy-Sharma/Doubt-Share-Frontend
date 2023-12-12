@@ -34,7 +34,8 @@ const DoubtHistory = () => {
   const handleLogOut = () => {
     toast.success("Logged out successfully")
     localStorage.removeItem('Revly.io');
-    navigate("/")
+    navigate("/");
+    
   }
 
   return (
