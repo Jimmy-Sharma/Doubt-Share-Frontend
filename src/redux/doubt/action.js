@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 export const GetDoubt = (userId) => async (dispatch) => {
     dispatch({ type: GET_DOUBT_REQUEST });
     return await axios
-        .get(`http://localhost:4545/doubt/history?id=${userId._id}`)
+        .get(`https://doubt-share-raz0.onrender.com/doubt/history?id=${userId._id}`)
         .then((res) => {
             dispatch({ type: GET_DOUBT_SUCCESS, payload: res.data.doubts });
         })
@@ -22,7 +22,7 @@ export const GetDoubt = (userId) => async (dispatch) => {
 export const PostDoubt = (payload) => async (dispatch) => {
     try {
         dispatch({ type: POST_DOUBT_REQUEST });
-        const response = await axios.post("http://localhost:4545/doubt/create", payload);
+        const response = await axios.post("https://doubt-share-raz0.onrender.com/doubt/create", payload);
 
         dispatch({ type: POST_DOUBT_SUCCESS, payload: response.data });
         toast.success('Doubt Successfully Posted ', {
@@ -55,7 +55,7 @@ export const deleteDoubt = (id) => (dispatch) => {
     dispatch({ type: DELETE_DOUBT_REQUEST });
 
     return axios
-        .delete(`http://localhost:4545/doubt/delete/${id}`)
+        .delete(`https://doubt-share-raz0.onrender.com/doubt/delete/${id}`)
         .then((res) => {
             dispatch({ type: DELETE_DOUBT_SUCCESS, payload: res.data });
             toast.success('Doubt Successfully Deleted', {
@@ -87,7 +87,7 @@ export const deleteDoubt = (id) => (dispatch) => {
 export const editDoubt = (id, payload) => (dispatch) => {
     dispatch({ type: EDIT_DOUBT_REQUEST });
     return axios
-        .put(`http://localhost:4545/doubt/edit/${id}`, payload)
+        .put(`https://doubt-share-raz0.onrender.com/doubt/edit/${id}`, payload)
         .then((r) => {
             dispatch({ type: EDIT_DOUBT_SUCCESS, payload: r.data });
             toast.success('Doubt Successfully Edited', {

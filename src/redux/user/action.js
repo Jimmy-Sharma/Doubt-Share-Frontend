@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 export const SignUpFunc = (payload) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
-    const response = await axios.post("http://localhost:4545/user/register", payload);
+    const response = await axios.post("https://doubt-share-raz0.onrender.com/user/register", payload);
 
     dispatch({ type: USER_REGISTER_SUCCESS, payload: response.data });
     toast.success('Registration successful!', {
@@ -38,7 +38,7 @@ export const Loginfunction = (loginData) => (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST });
 
   axios
-    .post("http://localhost:4545/user/login", loginData)
+    .post("https://doubt-share-raz0.onrender.com/user/login", loginData)
     .then((response) => {
       dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data });
       toast.success('Login successful!', {
